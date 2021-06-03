@@ -12,7 +12,6 @@ public class MouseClick extends MouseAdapter{
         this.graphic = graphic;
     }
 
-
     public void setGraphic(Graphic graphic) {
         this.graphic = graphic;
     }

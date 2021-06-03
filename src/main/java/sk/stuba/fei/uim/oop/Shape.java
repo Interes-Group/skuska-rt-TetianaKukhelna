@@ -7,7 +7,7 @@ public class Shape {
     private int y1;
     private int x2;
     private int y2;
-    private Color color = Color.WHITE;
+    private Color color = Color.RED;
 
     Shape(int x1, int y1, Color color) {
         this.x1 = x1;
