@@ -14,7 +14,7 @@ public class Graphic {
         frame = new JFrame("BoxLayout Example X_AXIS");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setContentPane(new Strom());
+        frame.add(new Strom());
         frame.setSize(300, 300);
         frame.setVisible(true);
         JButton jb1 = new JButton("Strom");
@@ -24,36 +24,36 @@ public class Graphic {
         JButton jb3 = new JButton("Ďalšia farba");
         jb3.addActionListener(new FarbaTlacidlo(this));
 
-        JPanel panel = new JPanel(new GridBagLayout());
+        JPanel panel = new JPanel();
 
-        GridBagConstraints c = new GridBagConstraints();
+//        GridBagConstraints c = new GridBagConstraints();
 
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.gridx = 0;
-        c.gridy = 0;
-        panel.add(jb1, c);
+//        c.fill = GridBagConstraints.HORIZONTAL;
+//        c.weightx = 0.5;
+//        c.gridx = 0;
+//        c.gridy = 0;
+        panel.add(jb1);
 
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.gridx = 1;
-        c.gridy = 0;
-        panel.add(jb2, c);
+//        c.fill = GridBagConstraints.HORIZONTAL;
+//        c.weightx = 0.5;
+//        c.gridx = 1;
+//        c.gridy = 0;
+        panel.add(jb2);
 
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.gridx = 2;
-        c.gridy = 0;
-        panel.add(jb3, c);
+//        c.fill = GridBagConstraints.HORIZONTAL;
+//        c.weightx = 0.5;
+//        c.gridx = 2;
+//        c.gridy = 0;
+        panel.add(jb3);
 
         Label label = new Label("Label");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.gridx = 3;
-        c.gridy = 0;
-        panel.add(label, c);
+//        c.fill = GridBagConstraints.HORIZONTAL;
+//        c.weightx = 0.5;
+//        c.gridx = 3;
+//        c.gridy = 0;
+        panel.add(label);
 
-        frame.getContentPane().add(BorderLayout.SOUTH, panel);
+        frame.add(panel, BorderLayout.SOUTH);
 
         frame.setSize(500, 500);
 
