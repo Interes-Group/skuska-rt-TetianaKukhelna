@@ -2,19 +2,25 @@ package sk.stuba.fei.uim.oop;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 public class Graphic {
 
     private Canvas canvas;
-    private Choice ColorChooser;
+    private Choice ColorChooser = new Choice();
     private JFrame frame = new JFrame();
 
     public void Paint() {
         frame = new JFrame("BoxLayout Example X_AXIS");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setContentPane(new Strom());
+        ColorChooser.add("RED");
+        ColorChooser.add("GREEN");
+        ColorChooser.add("BLUE");
+        Strom s = new Strom();
+        frame.setContentPane(s);
         frame.setSize(300, 300);
         frame.setVisible(true);
         JButton jb1 = new JButton("Strom");
@@ -43,18 +49,34 @@ public class Graphic {
         c.gridy = 0;
         panel.add(jb3, c);
 
-        Label label = new Label("Label");
+//        Label label = new Label("Label");
+//        c.fill = GridBagConstraints.HORIZONTAL;
+//        c.weightx = 0.5;
+//        c.gridx = 3;
+//        c.gridy = 0;
+//        panel.add(label, c);
+
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 3;
         c.gridy = 0;
-        panel.add(label, c);
+        panel.add(ColorChooser, c);
+
+
 
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
 
         frame.setSize(500, 500);
 
         frame.setVisible(true);
+
+        jb3.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                s.setFarba(getColor());
+            }
+        });
     }
 
     public List<Shape> getTree() {
@@ -71,13 +93,13 @@ public class Graphic {
 
     public Color getColor() {
         switch (ColorChooser.getSelectedItem()) {
-            case "Red":
+            case "RED":
                 return Color.red;
-            case "Blue":
-                return Color.blue;
-            case "Green":
+            case "GREEN":
                 return Color.green;
+            case "BLUE":
+                return Color.blue;
         }
-        return Color.white;
+        return Color.black;
     }
 }
