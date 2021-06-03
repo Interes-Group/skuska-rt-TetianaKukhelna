@@ -25,8 +25,8 @@ public class Strom extends JPanel {
     }
 
     public void setEndPoint(int x, int y) {
-        width = Math.abs(this.x - x);
-        height = Math.abs(this.y - y);
+        this.width = Math.abs(this.x - x);
+        this.height = Math.abs(this.y - y);
     }
 
     public void addShape()
@@ -44,7 +44,6 @@ public class Strom extends JPanel {
         public void mouseReleased(MouseEvent e) {
             setEndPoint(e.getX(), e.getY()); repaint();
             addShape();
-
         }
     }
 
@@ -54,7 +53,11 @@ public class Strom extends JPanel {
         {
             g.setColor(t.getFarba());
             g.fillRect(t.getX()+t.getWidth()/3,t.getY()+t.getHeight()/3,t.getWidth()/3,2*t.getHeight()/3);
-            g.fillOval(t.getX()+t.getWidth()/2,t.getY()+2*t.getHeight()/3,t.getWidth(),2*t.getHeight()/3);
+            g.fillOval(t.getX(),t.getY(),t.getWidth(),2*t.getHeight()/3);
+
+            g.setColor(Color.RED);
+            g.fillRect(this.x+this.width/3,this.y+this.height/3,width/3,2*height/3);
+            g.fillOval(this.x,this.y,this.width,2*this.height/3);
         }
         repaint();
     }
@@ -62,5 +65,4 @@ public class Strom extends JPanel {
     public Dimension getPreferredSize() {
         return new Dimension(200, 200);
     }
-}
 }
