@@ -2,20 +2,32 @@ package sk.stuba.fei.uim.oop;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
-public class StromEvent implements ActionListener {
+public class StromEvent extends MouseClick {
 
-    private Graphic graphic;
+    private int Start = -1;
 
-    StromEvent (Graphic graphic) {
-        this.graphic = graphic;
+    StromEvent(Graphic graphic) {
+        super(graphic);
     }
+
     @Override
-    public void actionPerformed(ActionEvent e) {
-        graphic.getCanvas().removeMouseListener(graphic.getCanvas().getMouseClick());
-        graphic.getCanvas().removeMouseMotionListener(graphic.getCanvas().getMouseClick());
-        //graphic.getCanvas().setMouseClick(new PlusMouseClickListener(graphic));
-        graphic.getCanvas().addMouseMotionListener(graphic.getCanvas().getMouseClick());
-        graphic.getCanvas().addMouseListener(graphic.getCanvas().getMouseClick());
+    public void mouseClicked(MouseEvent event) {
+        if (Start == -1) {
+            graphic.getTree().add(new Shape(event.getX(), event.getY(), graphic.getColor()));
+            Start = 1;
+        } else {
+            Start = -1;
+        }
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent event){
+        if (Start == 1) {
+            graphic.getTree().get(graphic.getTree().size() - 1).setX2(event.getX());
+            graphic.getTree().get(graphic.getTree().size() - 1).setY2(event.getY());
+            graphic.Update();
+        }
     }
 }
