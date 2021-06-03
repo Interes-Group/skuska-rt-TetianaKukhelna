@@ -7,6 +7,10 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class Strom extends JPanel {
+    public void setFarba(Color farba) {
+        this.farba = farba;
+    }
+
     private Color farba;
     private int x;
     private int y;
@@ -54,10 +58,6 @@ public class Strom extends JPanel {
             g.setColor(t.getFarba());
             g.fillRect(t.getX()+t.getWidth()/3,t.getY()+t.getHeight()/3,t.getWidth()/3,2*t.getHeight()/3);
             g.fillOval(t.getX(),t.getY(),t.getWidth(),2*t.getHeight()/3);
-
-            g.setColor(Color.RED);
-            g.fillRect(this.x+this.width/3,this.y+this.height/3,width/3,2*height/3);
-            g.fillOval(this.x,this.y,this.width,2*this.height/3);
         }
         repaint();
     }

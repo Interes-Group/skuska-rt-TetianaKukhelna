@@ -14,6 +14,9 @@ public class Graphic {
         frame = new JFrame("BoxLayout Example X_AXIS");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        frame.setContentPane(new Strom());
+        frame.setSize(300, 300);
+        frame.setVisible(true);
         JButton jb1 = new JButton("Strom");
         JButton jb2 = new JButton("Presun");
         JButton jb3 = new JButton("Ďalšia farba");
