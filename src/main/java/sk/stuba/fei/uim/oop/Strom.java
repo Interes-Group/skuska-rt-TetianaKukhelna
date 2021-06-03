@@ -5,14 +5,14 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Tree extends JPanel {
+public class Strom extends JPanel {
     private Color farba;
     private int x;
     private int y;
     private int height;
     private int width;
 
-    public Tree() {
+    public Strom() {
 
         x = 0;
         y = 200;
@@ -48,7 +48,7 @@ public class Tree extends JPanel {
         super.paintComponent(g);
         g.setColor(Color.RED);
         g.fillRect(this.x+this.width/3,this.y+this.height/3,width/3,2*height/3);
-        g.fillOval(this.x+this.width/2,this.y+2*this.height/3,this.width,2*this.height/3);
+        g.fillOval(this.x,this.y,this.width,2*this.height/3);
 
     }
     @Override

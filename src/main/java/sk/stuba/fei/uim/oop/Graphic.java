@@ -2,11 +2,16 @@ package sk.stuba.fei.uim.oop;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class Graphic {
 
+    private Canvas canvas;
+    private Choice ColorChooser;
+    private JFrame frame = new JFrame();
+
     public void Paint() {
-        JFrame frame = new JFrame("BoxLayout Example X_AXIS");
+        frame = new JFrame("BoxLayout Example X_AXIS");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JButton jb1 = new JButton("Strom");
@@ -47,5 +52,29 @@ public class Graphic {
         frame.setSize(500, 500);
 
         frame.setVisible(true);
+    }
+
+    public List<Shape> getStrom() {
+        return canvas.getStrom();
+    }
+
+    public void Update() {
+        frame.add(canvas, BorderLayout.CENTER);
+    }
+
+    public Canvas getCanvas() {
+        return canvas;
+    }
+
+    public Color getColor() {
+        switch (ColorChooser.getSelectedItem()) {
+            case "Red":
+                return Color.red;
+            case "Blue":
+                return Color.blue;
+            case "Green":
+                return Color.green;
+        }
+        return Color.white;
     }
 }
