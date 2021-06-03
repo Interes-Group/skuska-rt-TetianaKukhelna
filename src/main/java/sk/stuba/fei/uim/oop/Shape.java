@@ -15,11 +15,11 @@ public class Shape {
         this.color = color;
     }
 
-    public int getX() {
+    public int getX1() {
         return x1;
     }
 
-    public int getY() {
+    public int getY1() {
         return y1;
     }
 

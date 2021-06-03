@@ -56,4 +56,7 @@ public class Strom extends JPanel {
         return new Dimension(200, 200);
     }
 
+    public Color getFarba() {
+        return farba;
+    }
 }

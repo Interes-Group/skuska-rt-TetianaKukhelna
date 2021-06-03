@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Canvas extends java.awt.Canvas {
-    private java.util.List<Shape> Strom = new ArrayList<>();
+    private java.util.List<Shape> Tree = new ArrayList<>();
     //private List<Figure> LineList = new ArrayList<>();
     private MouseClick mouseClick;
 
@@ -14,16 +14,16 @@ public class Canvas extends java.awt.Canvas {
     }
 
     public void paint (Graphics g) {
-        for (int i = 0; i < Strom.size(); i++) {
-            g.setColor(Strom.get(i).getColor());
-            int min = Math.abs(Strom.get(i).getX() - Strom.get(i).getX2()) < Math.abs(Strom.get(i).getY() - Strom.get(i).getY2()) ? Math.abs(Strom.get(i).getX() - Strom.get(i).getX2()) : Math.abs(Strom.get(i).getY() - Strom.get(i).getY2());
-            int minx = Strom.get(i).getX() < Strom.get(i).getX2() ? min : -min;
-            int miny = Strom.get(i).getY() < Strom.get(i).getY2() ? min : -min;
-            drawRect(Strom.get(i).getX() + (int)minx/3, Strom.get(i).getY(), (int)minx/3, (int)miny/3, g);
-            drawRect(Strom.get(i).getX(), Strom.get(i).getY() + (int)miny/3, (int)minx/3, (int)miny/3, g);
-            drawRect(Strom.get(i).getX() + (int)minx/3, Strom.get(i).getY() + (int)miny/3, (int)minx/3, (int)miny/3, g);
-            drawRect(Strom.get(i).getX() + (int)minx/3 * 2, Strom.get(i).getY() + (int)miny/3, (int)minx/3, (int)miny/3, g);
-            drawRect(Strom.get(i).getX() + (int)minx/3, Strom.get(i).getY() + (int)miny/3 * 2, (int)minx/3, (int)miny/3, g);
+        for (int i = 0; i < Tree.size(); i++) {
+            g.setColor(Tree.get(i).getColor());
+            int min = Math.abs(Tree.get(i).getX1() - Tree.get(i).getX2()) < Math.abs(Tree.get(i).getY1() - Tree.get(i).getY2()) ? Math.abs(Tree.get(i).getX1() - Tree.get(i).getX2()) : Math.abs(Tree.get(i).getY1() - Tree.get(i).getY2());
+            int minx = Tree.get(i).getX1() < Tree.get(i).getX2() ? min : -min;
+            int miny = Tree.get(i).getY1() < Tree.get(i).getY2() ? min : -min;
+            drawRect(Tree.get(i).getX1() + (int)minx/3, Tree.get(i).getY1(), (int)minx/3, (int)miny/3, g);
+            drawRect(Tree.get(i).getX1(), Tree.get(i).getY1() + (int)miny/3, (int)minx/3, (int)miny/3, g);
+            drawRect(Tree.get(i).getX1() + (int)minx/3, Tree.get(i).getY1() + (int)miny/3, (int)minx/3, (int)miny/3, g);
+            drawRect(Tree.get(i).getX1() + (int)minx/3 * 2, Tree.get(i).getY1() + (int)miny/3, (int)minx/3, (int)miny/3, g);
+            drawRect(Tree.get(i).getX1() + (int)minx/3, Tree.get(i).getY1() + (int)miny/3 * 2, (int)minx/3, (int)miny/3, g);
         }
 //        for (int i = 0; i < LineList.size(); i++) {
 //            g.setColor(LineList.get(i).getColor());
@@ -51,8 +51,8 @@ public class Canvas extends java.awt.Canvas {
         return mouseClick;
     }
 
-    public List<Shape> getStrom() {
-        return Strom;
+    public List<Shape> getTree() {
+        return Tree;
     }
 
 //    public List<Figure> getLineList() {

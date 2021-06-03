@@ -54,8 +54,8 @@ public class Graphic {
         frame.setVisible(true);
     }
 
-    public List<Shape> getStrom() {
-        return canvas.getStrom();
+    public List<Shape> getTree() {
+        return canvas.getTree();
     }
 
     public void Update() {
